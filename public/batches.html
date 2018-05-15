@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <title>Teachers</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-5" href="index.html">Learning Management Solution</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="courses.html" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="subjects.html" class="nav-link">Subjects</a>
+                </li class="nav-item active">
+                <li class="nav-item active">
+                    <a href="teachers.html" class="nav-link">Teachers</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="students.html" class="nav-link">Students</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="batches.html" class="nav-link">Batches</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" id="batches">
+        <form class="form-horizontal">
+            <fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Batch Name</label>
+                    <div class="col-md-4">
+                        <input v-model="batchname" placeholder="Batch Name" class="form-control input-md" required="" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Batch Year</label>
+                    <div class="col-md-4">
+                        <input v-model="batchyear" placeholder="Batch Year" class="form-control input-md" required="" type="text">
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" v-on:click="addBatch" class="btn btn-primary">ADD</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+        <h4>List of Batches:</h4>
+        <ol class="list-group">
+            <li class="list-group-item" v-for="item in batches">
+                {{item.name}}
+            </li>
+        </ol>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="batches-front.js"></script>
+</body>
+
+</html>
