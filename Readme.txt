@@ -1,1 +1,0 @@
-Public folder contains the front-end part.
