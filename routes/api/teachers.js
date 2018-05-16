@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const route = require('express').Router();
 const {Teacher} = require('../../db');
 const {Teacher_Batch} = require('../../db');
@@ -56,63 +55,4 @@ route.get(':id/batches', (req,res) => {
     });
 });
 
-=======
-const route = require('express').Router();
-const {Teacher} = require('../../db');
-const {Teacher_Batch} = require('../../db');
-
-route.get('/', (req,res) => {
-    Teacher.findAll().then((teachers) => {
-        res.status(200).send(teachers);
-    }).catch((err) => {
-        res.status(500).send({
-            error: 'cannot retrieve teachers'
-        });
-    });
-});
-
-route.post('/', (req,res) => {
-    Teacher.create({
-        name: req.body.name
-    }).then((teacher) => {
-        res.send(teacher);
-    }).catch((err) => {
-        res.send({
-            msg: err
-        })
-    })
-})
-
-route.get('/:id', (req,res) => {
-    Teacher.findOne({
-        where: {
-            id: parseInt(req.params.id)
-        }
-    }).then((teacher) => {
-        res.status(200).send(teacher);
-    }).catch((err) => {
-        res.status(500).send({
-            error: 'cannot retrieve teacher'
-        });
-    });
-});
-
-route.get(':id/batches', (req,res) => {
-    Teacher_Batch.findAll({
-        where: {
-            teacherId: parseInt(req.params.id)
-        },
-        include: {
-            model: Batch
-        }
-    }).then((teachers) => {
-        res.status(200).send(teachers);
-    }).catch((err) => {
-        res.status(500).send({
-            error: 'cannot retrieve batches'
-        });
-    });
-});
-
->>>>>>> ef80c79c97ddc7c6d9b08ec7b18815bd866dc47b
-module.exports = route;
+module.exports = route
